@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .navigation {
+        @apply relative flex items-center gap-2 py-2 px-4 text-main-gray hover:!text-main-purple hover:!bg-transparent active:!bg-transparent
+    }
+
+    .navigation::after {
+        @apply content-[''] bg-main-purple h-[3px] w-[0%] left-0 bottom-0 rounded-xl absolute duration-300 hover:w-[100%]
+    }
+
+    .active {
+        @apply !text-main-purple
+    }
+
+    .active::after {
+        @apply w-[100%]
+    }
+
+    .dot {
+        @apply relative bg-white
+    }
+
+    .dot::before {
+        @apply content-[''] bg-red-500/90 h-[8px] w-[8px] rounded-xl absolute z-10
+    }
+
+    .like::before {
+        @apply right-[-1px] top-[3px]
+    }
+
+    .message::before {
+        @apply right-[-1px] top-[3px]
+    }
+
+    .notification::before {
+        @apply right-[1px] -top-[2px]
+    }
+
+    .row {
+        @apply flex flex-col gap-[0.5rem] pb-[1rem] lg:flex-row
+    }
+
+    .select[aria-expanded="true"] {
+        @apply border-main-purple border-t-transparent
+    }
+
+    .select[aria-expanded="true"] ~ .select-label {
+        @apply text-main-purple
+    }
+
+    .select[aria-expanded="true"] ~ .select-label::before,
+    .select[aria-expanded="true"] ~ .select-label::after {
+        @apply border-main-purple
+    }
+
+}
+
+* {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* End of Section */
+
+/* Alerts */
+.alert {
+    min-width: 250px;
+    margin-left: -125px;
+    width: auto;
+    color: var(--alert-color);
+    background-color: var(--alert-bg);
+    border-radius: 5px;
+    padding: 16px;
+    text-align: center;
+    font-size: 17px;
+    position: fixed;
+    z-index: 10;
+    right: 2rem;
+    bottom: 3rem;
+    text-transform: capitalize;
+}
+
+.alert-success {
+    --alert-color: #0d6832;
+    --alert-bg: #d0eddb;
+}
+
+.alert-failure {
+    --alert-color: #af233a;
+    --alert-bg: #f8dbe0;
+}
+
+.alert div:first-child {
+    margin-right: 0;
+}
+
+/* End of Section */
+
+.error-message {
+    color: red;
+}
+
+.parent > div {
+    width: 30%;
+}
